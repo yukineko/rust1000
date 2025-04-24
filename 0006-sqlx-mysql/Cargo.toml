@@ -1,0 +1,12 @@
+[package]
+name = "sqlx-mysql"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+sqlx = { version = "0.8", features = ["mysql", "runtime-tokio-rustls"] }
+tokio = { version = "1", features = ["full"] }
+dotenv = "0.15"
+tracing-subscriber = { version = "0.3" }
+tracing = "0.1"
+anyhow = "1.0"
