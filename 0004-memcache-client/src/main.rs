@@ -1,5 +1,3 @@
-
-
 use memcache;
 fn main() {
     let client = memcache::connect("memcache://127.0.0.1:11211").unwrap();
