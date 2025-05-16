@@ -3,7 +3,7 @@ use std::thread;
 use std::time::Duration;
 fn main() {
     let (tx, rx) = mpsc::channel();
-    let tx1 = mpsc::Sender::clone(&tx);
+    let tx1 = mpsc::Sender::clone(&tx); // txを
 
     thread::spawn(move || {
         let helloworld = vec![
@@ -14,7 +14,7 @@ fn main() {
             String::from("thread"),
         ];
         for hello in helloworld {
-            tx1.send(hello).unwrap();
+            tx.send(hello).unwrap();
             thread::sleep(Duration::from_secs(2));
         }
     });
@@ -31,7 +31,7 @@ fn main() {
         ];
 
         for val in vals {
-            tx.send(val).unwrap();
+            tx1.send(val).unwrap();
             thread::sleep(Duration::from_secs(1));
         }
     });
